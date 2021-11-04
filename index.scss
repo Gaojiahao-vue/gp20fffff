@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bander {
+    width: 100%;
+    height: 480px;
+    background: url(./imgs/banner.jpg) no-repeat center;
+    overflow: hidden;
+}
+
+
+.shuju_box{
+    width: 100%;
+    overflow: hidden;
+}
+
+
+
+.shuju {
+    display: flex;
+    height: 335px;
+    width: 1140px;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+
+    .shuju_row {
+        display: flex;
+        flex-direction: column;
+
+
+        >div {
+            width: 160px;
+            height: 160px;
+            font-size: 40px;
+            font-weight: 500;
+
+            line-height: 160px;
+            border-radius: 50%;
+            border: 1px solid gray;
+            color: rgb(30, 30, 214);
+            text-align: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.2s linear;
+
+            &:hover {
+                box-shadow: 0px 0px 40px 0px rgb(165, 158, 158);
+            }
+        }
+
+        >p {
+
+            font-size: 18px;
+            color: #555;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+
+        }
+    }
+
+}
+
+.bander2 {
+    height: 600px;
+    width: 100%;
+    background: url(./imgs/item_bg.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+
+.sever {
+    width: 100%;
+    height: auto;
+    padding-top: 60px;
+    padding-bottom: 70px;
+    overflow: hidden;
+    zoom: 1;
+
+    .serve_wrap {
+        width: 1140px;
+        height: auto;
+        margin: 0 auto;
+
+        >h2 {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+
+        }
+
+        >p {
+            font-size: 17px;
+            color: #7a7a7a;
+            margin: 20px 0 50px;
+            text-align: center;
+        }
+
+        >ul {
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+
+
+
+
+            >li {
+                width: 140px;
+                height: 230px;
+                text-align: center;
+                box-sizing: border-box;
+                padding: 45px 18px 48px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border: 1px solid #c2bcbc;
+
+                .icon_bg {
+                    width: 48px;
+                    height: 48px;
+                  
+                    margin-bottom: 20px;
+                }
+                
+
+                >span {
+                    width: 20px;
+                    height: 3px;
+                    background-color: #7a7a7a;
+                    margin-bottom: 20px;
+                }
+
+                >p {
+                    color: #7a7a7a;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.bg1{
+    background: url('./imgs/jl.png') no-repeat -1px -1px;
+}
+.bg2{
+    background: url('./imgs/jl.png') no-repeat 0px -49px;
+}
+.bg3{
+    background: url('./imgs/jl.png') no-repeat 0px -97px;
+}
+.bg4{
+    background: url('./imgs/jl.png') no-repeat 0px -145px;
+}
+.bg5{
+    background: url('./imgs/jl.png') no-repeat 0px -194px;
+}
+.bg6{
+    background: url('./imgs/jl.png') no-repeat 5px -240px;
+}
+
+
+
+
+.gov {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    zoom: 1;
+    background-color: #f0f0f0;
+    padding-top: 70px;
+    padding-bottom: 55px;
+
+    .gov_wrap {
+        width: 1140px;
+        margin: auto;
+
+
+        >h2 {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+
+        }
+
+        >p {
+            font-size: 17px;
+            color: #7a7a7a;
+            margin: 20px 0 50px;
+            text-align: center;
+        }
+
+        .gov_item {
+            display: flex;
+            height: 450px;
+            justify-content: space-between;
+
+            >img {
+                display: block;
+                height: 450px;
+            }
+
+            .wenzhi {
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                // justify-content: center;
+                align-items: center;
+                padding: 85px 85px 0;
+
+                >img {
+                    width: 185px;
+                    height: 72px;
+                    display: block;
+                    margin-bottom: 30px;
+                }
+
+                >p {
+                    font-size: 15px;
+                    color: #7a7a7a;
+                    line-height: 28px;
+                    text-align: justify;
+                }
+            }
+
+        }
+
+
+
+
+    }
+
+
+}
+
+
+.more_he{
+    width: 100%;
+    height: 700px;
+    padding: 60px 0 70px;
+    overflow: hidden;
+
+    > .more_he_wrap{
+        width: 1140px;
+        margin: auto;
+
+        >h2 {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+
+        }
+
+        >p {
+            font-size: 17px;
+            color: #7a7a7a;
+            margin: 20px 0 50px;
+            text-align: center;
+        }
+      
+
+        .more_he_wrap_show{
+        width: 1108px;
+        height: 357px;
+        margin: auto;
+        overflow: hidden;
+
+        > ul{
+            display: flex;
+       
+            >li>img{
+         display: block;
+        }
+        }
+        
+    }
+
+}
+}
+
+
+
+.out_taem{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    zoom: 1;
+    background: url(http://www.zhiyou100.com/rdcenter/img/team_bg.jpg) center no-repeat;
+    background-size: cover;
+    padding-bottom: 100px;
+
+    >.out_taem_wrap{
+        width: 1140px;
+        margin: auto;
+        
+
+        >h2 {
+
+            width: 100%;
+            margin:70px auto 25px;
+            text-align: center;
+            color: white;
+        }
+
+        >p {
+            font-size: 17px;
+            color: #e7e7e7;
+            margin: 20px 0 50px;
+            text-align: center;
+            
+        }
+
+        >ul{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            >li{
+                border: 2px solid rgb(36, 32, 32);
+                >img{
+                    display: block;
+                    height: 316px;
+                }
+            }
+        }
+      
+    }
+}
