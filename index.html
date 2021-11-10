@@ -1,278 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>京东</title>
-    <link rel="stylesheet" href="./index.css">
-    
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-    <nav>
-     <div class="nav_left">
-         <span></span>
-     </div>
+    <canvas></canvas>
+    <script>
+        let canvas = document.querySelector('canvas');
+        let ctx = canvas.getContext("2d");
+        canvas.width = this.innerWidth;
+        canvas.height = this.innerHeight;
 
-    <div class="nav_center">
-    <div class="nav_center_box">
-         <span></span>
-          <input type="text">
-         </div>
-         
-     </div>
+        window.onresize = function () {
+            canvas.width = this.innerWidth;
+            canvas.height = this.innerHeight;
+        }
+        // 存储创建圆的实例
+        let circles = [];
+        canvas.onmousemove = function () {
+            for (let i = 0; i < 10; i++) {
+                let x = event.pageX;
+                let y = event.pageY;
+                let r = Math.floor(Math.random() * 10);
+                let color = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
+                let dx = Math.random() * 2 - 1; //[-1 1)
+                let dy = Math.random() * 2 - 1; //[-1 1)
+                let circle = new Circle(x, y, r, color, dx, dy, 1);
+                circle.createCircle();
+                circles.push(circle);
+            }
+        }
 
-     <div class="nav_right">
-        <span>登录</span>
-    </div>
-    </nav>
+        class Circle {
+            constructor(x, y, r, c, directionX, directionY, num) {
+                this.x = x;
+                this.y = y;
+                this.r = r;
+                this.c = c;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.num = num;
+            }
+            createCircle() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+                ctx.fillStyle = this.c;
+                ctx.fill()
+            }
+        }
 
-    <div class="bander">
-        <img src="https://imgcps.jd.com/ling4/10035632057576/5Lqs6YCJ5aW96LSn/5L2g5YC85b6X5oul5pyJ/p-5c131e9282acdd181da661a1/65608ac3/cr_1125x449_0_166/s/q70.jpg" alt="">
-    </div>
-
-</header>
-
-<div class="floor-the-container">
-
-    <div class="floor-the-container_img">
-
-        <img class="img1" src="https://m.360buyimg.com/mobilecms/jfs/t1/216702/26/2991/130454/61824396Ed65ae4b0/9b5c64f37559c824.jpg!q70.jpg" alt="">
-        <img class="img" src="https://m.360buyimg.com/mobilecms/s270x345_jfs/t1/147169/32/21198/43630/617fc8feE93274559/0d8db9f71e3be928.png!q70.jpg" alt="">
-    </div>
-
-    <div class="floor-the-container_img">
-        <img class="img2" src="https://m.360buyimg.com/mobilecms/jfs/t1/122505/19/15070/68848/5f861494Ebe330db5/24bc162f493ec940.jpg!q70.jpg" alt="">
-        <img class="img3" src="https://m.360buyimg.com/mobilecms/jfs/t1/45881/9/6471/140579/5d417c2cEf0948fe6/e2a0000037fb89b2.jpg!q70.jpg" alt="">
-        
-        <img class="img" src="https://m.360buyimg.com/mobilecms/jfs/t1/168925/13/22518/132999/618243e2E47574f5b/51263cb05d109ef4.gif" alt="">
-    </div>
-
-
-    <div class="floor-the-container_img">
-        <img class="img4" src="https://m.360buyimg.com/mobilecms/jfs/t1/216953/6/2969/401921/6182790dEaf408daa/77693dda512912a6.jpg!q70.jpg" alt="">
-        <img class="img" src="https://m.360buyimg.com/mobilecms/s270x345_jfs/t1/203602/36/13553/43261/617fc951E1d28b5a7/d9130e22ffe3df5f.png!q70.jpg" alt="">
-    </div>
-
-
-
-</div>
-
-
-
-<div class="mall_nav">
-
-    <ul>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/175540/24/19329/6842/60ec0b0aEf35f7384/ec560dbf9b82b90b.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/178015/31/13828/6862/60ec0c04Ee2fd63ac/ccf74d805a059a44.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/41867/2/15966/7116/60ec0e0dE9f50d596/758babcb4f911bf4.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/177902/16/13776/5658/60ec0e71E801087f2/a0d5a68bf1461e6d.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/196472/7/12807/7127/60ec0ea3Efe11835b/37c65625d94cae75.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/185733/21/13527/6648/60ec0f31E0fea3e0a/d86d463521140bb6.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/199143/10/8979/4223/614599f5E45cd5464/d15aa650a0ebe596.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/186080/16/13681/8175/60ec0fcdE032af6cf/c5acd2f8454c40e1.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/196711/35/12751/6996/60ec1000E21b5bab4/38077313cb9eac4b.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        <li>
-            <img src="https://m.360buyimg.com/mobilecms/s120x120_jfs/t1/37709/6/15279/6118/60ec1046E4b5592c6/a7d6b66354efb141.png!q70.jpg.dpg" alt="">
-            <p>京东超市</p>
-        </li>
-        
-   
-    </ul>
+        setInterval(() => {
+            // ctx.clearRect(0, 0, canvas.width, canvas.height)
+            for (let i = 0; i < circles.length; i++) {
+                let circleObj = circles[i];// 取出每一个圆的实例
+                // 改变圆心位置
+                circleObj.x += circleObj.directionX;
+                circleObj.y += circleObj.directionY;
 
 
+                ctx.beginPath();
+                ctx.arc(circleObj.x, circleObj.y, circleObj.r, 0, 2 * Math.PI);
+                ctx.fillStyle = circleObj.c;
+                ctx.fill()
 
+                circleObj.num++;
 
-</div>
+                // 该判断的主要作用 是控制删除的频率  你可以随便取定义
+                // 通过为每一个circleObj 的num属性进行的操作
+                if (circleObj.num > 300) {
+                    console.log('123');
 
+                    circles.splice(i, 1);
+                }
 
+                // setTimeout(() => {
+                //     // let index = circles.indexOf(circleObj);
+                //     circles.splice(i, 1);
+                // }, 3000);
+            }
+        }, 16.67);
 
-<div class="seckill">
-
-<div class="seckill_header_box">
-    <div class="seckill_header">
-        <div class="seckill_header_left">京东秒杀
-
-           <span>18</span> 
-        </div>
-
-        
-       
-
-        <div class="seckill_header_right">
-        更多秒杀 <i>></i>
-        </div>
-
-    </div>
-
-  <ul>
-           
-
-            <li>
-                <img src="https://img11.360buyimg.com/n7/s150x150_jfs/t9709/232/1593477494/68134/6654dbca/59e351b6Na0578570.jpg.dpg" alt="">
-                <p>￥20</p>
-            </li>
-            <li>
-                <img src="https://img11.360buyimg.com/n7/s150x150_jfs/t1/188897/19/11963/82724/60e40b95Eb27ce6b0/abe9eacaa79c89fc.jpg.dpg" alt="">
-                <p>￥20</p>
-            </li>
-            <li>
-                <img src="https://img11.360buyimg.com/n7/s150x150_jfs/t1/157000/38/22831/170574/6180ac23E0466f445/b876c88d46f60826.jpg.dpg" alt="">
-                <p>￥20</p>
-            </li>
-            <li>
-                <img src="https://img11.360buyimg.com/n7/s150x150_jfs/t1/171399/31/22183/144007/61820fa5E1f8f8519/19ec005b9a109b27.jpg.dpg" alt="">
-                <p>￥20</p>
-            </li>
-            <li>
-                <img src="https://img11.360buyimg.com/n7/s150x150_jfs/t1/144097/28/20863/94834/61790c91Ec8839e52/e43199c0aebf7158.png" alt="">
-                <p>￥20</p>
-            </li>
-            <li>
-                <img src="https://img11.360buyimg.com/n7/s150x150_jfs/t1/173377/25/16676/324911/60d57fb5E67ed6186/70a064bfd33df8e3.jpg.dpg" alt="">
-                <p>￥20</p>
-            </li>
-        </ul>
-</div>
-
-</div>
-
-
-<div class="floor-the-container-outer">
-
-<ul>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/156350/18/22633/215009/6182621fE285fb7fa/3b2b80913110b643.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/154878/29/19042/108790/603460f4Ef60ea382/20a85506666a12e3.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/212164/32/2912/189654/6181eccbEc3a06b82/488c8bb395861755.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/164600/35/15786/170334/60656345E0c4dcf5a/f4e5a8062da960ff.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/183198/2/9435/144746/60c86851E5cc7ca6e/8de8628d0c4e4f7f.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li> <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/217836/19/2977/161957/618240c7E0b1195be/f98040250e0d8129.jpg!q70.jpg.dpgC" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li> <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/218151/29/2542/17752/617ec3c7Ee4cdae12/684c546f2dc1b733.png!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/210217/32/7993/93448/6183a10cE92127ee8/3db101b9b55c14b2.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/156350/18/22633/215009/6182621fE285fb7fa/3b2b80913110b643.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/154878/29/19042/108790/603460f4Ef60ea382/20a85506666a12e3.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/212164/32/2912/189654/6181eccbEc3a06b82/488c8bb395861755.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-    <li>
-        <img src="https://m.360buyimg.com/mobilecms/s240x240_jfs/t1/164600/35/15786/170334/60656345E0c4dcf5a/f4e5a8062da960ff.jpg!q70.jpg.dpg" alt="">
-        <p>服务器榜</p>
-        <p>机器</p>
-    </li>
-
-</ul>
-
-</div>
-
-<div class="container_ul_box">
-<ul class="container_ul">
-
-    <li>
-<img src="https://img10.360buyimg.com/mobilecms/s372x372_jfs/t1/186632/8/20256/362635/61284895Eac44b0f8/0505d91386b7ed70.jpg!q70.dpg.webp" alt="">
-    <p>【直播专享】碧浪 Ariel 专业抗菌除螨洗衣液12斤 99%杀菌 除菌抑菌72小时 超值家套装 清香 包装随机发货 </p>
-
-   <div>
-    <span>￥24</span> 
-    <span>看相似</span></div>
-    </li>
-
-    <li>
-        <img src="https://img12.360buyimg.com/mobilecms/s372x372_jfs/t1/212001/5/3028/187868/6182b54bE3baded18/3c11f4ffc095528d.jpg!q70.dpg.webp" alt="">
-            <p>【直播专享】碧浪 Ariel 专业抗菌除螨洗衣液12斤 99%杀菌 除菌抑菌72小时 超值家套装 清香 包装随机发货 </p>
-           <div>
-            <span>￥24</span> 
-            <span>看相似</span></div>
-            </li>
-        
-             <li>
-        <img src="https://img13.360buyimg.com/mobilecms/s372x372_jfs/t1/170609/34/22375/253187/617e35ddE6a9660ff/d0887d4ffc4e9607.jpg!q70.dpg.webp" alt="">
-            <p>【直播专享】碧浪 Ariel 专业抗菌除螨洗衣液12斤 99%杀菌 除菌抑菌72小时 超值家套装 清香 包装随机发货 </p>
-           <div>
-            <span>￥24</span> 
-            <span>看相似</span></div>
-            </li>
-     <li>
-     <img src="https://img10.360buyimg.com/mobilecms/s372x372_jfs/t1/215501/3/3035/148364/6182bc2aEb1e9b311/dc0e5d1f61d629b6.jpg!q70.dpg.webp" alt="">
-     <p>【直播专享】碧浪 Ariel 专业抗菌除螨洗衣液12斤 99%杀菌 除菌抑菌72小时 超值家套装 清香 包装随机发货 </p>
-    <div>
-    <span>￥24</span> 
-    <span>看相似</span></div>
-    </li>        
-
-</ul>
-</div>
-
-
-
-
-
+    </script>
 </body>
+
 </html>
